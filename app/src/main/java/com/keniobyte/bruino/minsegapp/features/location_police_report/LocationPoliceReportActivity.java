@@ -160,6 +160,16 @@ public class LocationPoliceReportActivity extends AppCompatActivity implements I
     }
 
     @Override
+    public boolean isTextInAutoCompleteTextView() {
+        return addressAutoCompleteTextView.getText().toString().isEmpty();
+    }
+
+    @Override
+    public boolean isTextEqualsToAddress() {
+        return addressAutoCompleteTextView.getHint().toString().equals(getResources().getString(R.string.incidentAddress));
+    }
+
+    @Override
     public void setEnableNextStepButton(boolean i) {
         nextStepButton.setEnabled(i);
     }
@@ -173,6 +183,10 @@ public class LocationPoliceReportActivity extends AppCompatActivity implements I
     @Override
     public void hintToTextAutoCompleteTextView() {
         addressAutoCompleteTextView.setText(addressAutoCompleteTextView.getHint().toString());
+    }
+
+    @Override
+    public void jumpToEndOfTheWord() {
         addressAutoCompleteTextView.setSelection(addressAutoCompleteTextView.getText().toString().length());
     }
 

@@ -16,10 +16,13 @@ import java.util.ArrayList;
 
 public interface ILocationPoliceReportView {
     ArrayAdapter createArrayAdapter();
+    boolean isTextInAutoCompleteTextView();
+    boolean isTextEqualsToAddress();
 
     void setEnableNextStepButton(boolean i);
     void addMarkerInGoogleMap(LatLng latLng);
     void hintToTextAutoCompleteTextView();
+    void jumpToEndOfTheWord();
     void showProgressBar();
     void hideProgressBar();
     void setTextAutoCompleteTextView(String string);

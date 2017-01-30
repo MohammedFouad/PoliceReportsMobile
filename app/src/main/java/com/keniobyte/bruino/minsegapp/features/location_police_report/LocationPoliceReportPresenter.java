@@ -155,6 +155,15 @@ public class LocationPoliceReportPresenter extends BasePresenter<LocationPoliceR
 
     @Override
     public void onClickInAutoCompleteTextView() {
-        locationPoliceReportView.hintToTextAutoCompleteTextView();
+        if (locationPoliceReportView.isTextInAutoCompleteTextView()){
+            if (locationPoliceReportView.isTextEqualsToAddress()){
+                locationPoliceReportView.jumpToEndOfTheWord();
+            } else {
+                locationPoliceReportView.hintToTextAutoCompleteTextView();
+                locationPoliceReportView.jumpToEndOfTheWord();
+            }
+        } else {
+            locationPoliceReportView.jumpToEndOfTheWord();
+        }
     }
 }
