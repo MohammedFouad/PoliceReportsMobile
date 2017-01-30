@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navView.getMenu().performIdentifierAction(R.id.nav_home, 0);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navView.setCheckedItem(R.id.nav_home);
+    }
+
     public int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
