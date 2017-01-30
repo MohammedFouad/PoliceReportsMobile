@@ -27,9 +27,9 @@
 
     <group android:id="@+id/group2" >
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_info_outline_black_24dp"
-            android:title="@string/about" />
+            android:id="@+id/nav_send_feedback"
+            android:icon="@drawable/ic_email_black_48dp"
+            android:title="@string/send_feedback" />
     </group>
 
 </menu>

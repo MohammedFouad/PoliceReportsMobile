@@ -105,6 +105,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_missing) {
             startActivity(new Intent(this, SectionMissingPersonActivity.class));
+        } else if (id == R.id.nav_send_feedback){
+            startActivity(Intent.createChooser(new Intent(Intent.ACTION_SEND).setType("message/rfc822")
+                    .putExtra(Intent.EXTRA_EMAIL, new String[]{"lucianopodazza@gmail.com"})
+                    ,"Send mail..."));
         }
         navView.setCheckedItem(R.id.nav_home);
         drawerLayout.closeDrawer(GravityCompat.START);
