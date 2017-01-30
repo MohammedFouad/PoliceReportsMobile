@@ -40,5 +40,15 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:text="@string/list_station" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/myPoliceStationButton" />
     </RelativeLayout>
 </RelativeLayout>

@@ -65,6 +65,7 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
     @Override
     public void onClickMyPoliceStations() {
         if (SmartLocation.with(context).location().state().isGpsAvailable() || SmartLocation.with(context).location().state().isAnyProviderAvailable()){
+            policeStationsView.showProgressBar();
             SmartLocation.with(context).location().oneFix().start(new OnLocationUpdatedListener() {
                 @Override
                 public void onLocationUpdated(Location location) {
@@ -76,6 +77,8 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
 
                             if (!showInfoMarker(police_station_name) || police_station_name == null){
                                 policeStationsView.notFoundRangeMessage();
+                            } else {
+                                policeStationsView.hideProgressBar();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

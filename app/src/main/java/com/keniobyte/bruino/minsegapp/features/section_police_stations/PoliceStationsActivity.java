@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -50,6 +51,7 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
     @BindView(R.id.myToolbar) Toolbar toolbar;
     @BindView(R.id.myPoliceStationButton) Button myPoliceStationButton;
     @BindView(R.id.listPoliceStationsButton) Button listPoliceStationsButton;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
 
     @BindString(R.string.section_police_stations) String title;
     @BindString(R.string.accept) String ok;
@@ -219,6 +221,16 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
         }
         googleMap.setMyLocationEnabled(true);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
+    }
+
+    @Override
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override

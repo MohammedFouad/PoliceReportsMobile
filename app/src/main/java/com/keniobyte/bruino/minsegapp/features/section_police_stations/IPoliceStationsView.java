@@ -22,5 +22,7 @@ public interface IPoliceStationsView {
     void notPermissionLocationMessage();
     void permissionLocationMessage();
     void setMyLocation(Marker marker);
+    void showProgressBar();
+    void hideProgressBar();
     void navigationToListPoliceStations();
 }
