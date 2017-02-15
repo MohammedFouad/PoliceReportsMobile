@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.keniobyte.bruino.minsegapp.R;
 
@@ -24,8 +25,7 @@ import nucleus.factory.RequiresPresenter;
 @RequiresPresenter(SectionHomePresenter.class)
 public class SectionHomeFragment extends Fragment implements ISectionHomeView{
 
-    @BindView(R.id.emergencyButton)
-    FloatingActionButton emergencyButton;
+    @BindView(R.id.emergencyButton) Button emergencyButton;
 
     private SectionHomePresenter presenter;
 

@@ -42,7 +42,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="not_internet_kml">Sin internet para acceder a las ubicaciones de la comisaría</string>
-    <string name="call_911">911</string>
+    <string name="call_911">Llamar al 911</string>
     <string name="message_not_current_version">Hay una actualización disponible. Para efectuar denuncias debera actualizar a la última versión.</string>
     <string name="button_update">Actualizar</string>
     <string name="title_error">Error</string>
