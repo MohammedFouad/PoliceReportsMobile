@@ -1,18 +1,19 @@
 <resources>
-    <!--Buttons-->
+    <!--Buttons Titles-->
     <string name="next">Siguiente</string>
     <string name="actived">Activar</string>
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
     <string name="recharge">Recargar</string>
-    <!-- Login -->
-    <string name="login_ssn">Ingrese DNI:</string>
-    <string name="login_button">Iniciar Sesión</string>
-    <string name="sign_up">¿Nuevo? Registrarse</string>
-    <string name="error_messege">Error al Iniciar Sesión</string>
     <!-- Activity Main -->
+    <!-- Section Home -->
     <string name="section_init">Inicio</string>
+    <string name="call_911">Llamar al 911</string>
+    <!-- Section Police Stations-->
     <string name="section_police_stations">Comisarías</string>
+    <string name="my_police_station">Mi Comisaría</string>
+    <string name="list_station">Lista de Comisarías</string>
+
     <string name="section_police_report">Denuncia</string>
     <string name="section_wanted">Pedido de Captura</string>
     <string name="section_missing">Personas Extraviadas</string>
@@ -29,8 +30,6 @@
     <string name="section_anonymousReport">Denuncia por Drogas</string>
     <string name="info_drug_report">Lugares/Puntos de venta de drogas, laboratorios donde se realizan su producción.</string>
     <string name="send_anonymous_police_report">Denunciar Anónimamente</string>
-    <string name="my_police_station">Mi Comisaría</string>
-    <string name="list_station">Lista de Comisarías</string>
     <string name="jurisdiction">Jurisdicción</string>
     <string name="title_attention">Atención</string>
     <string name="text_permissions_location">Para indicar su comisaría más cercana, permita que la aplicación acceda a tu Ubicación.</string>
@@ -42,7 +41,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="not_internet_kml">Sin internet para acceder a las ubicaciones de la comisaría</string>
-    <string name="call_911">Llamar al 911</string>
     <string name="message_not_current_version">Hay una actualización disponible. Para efectuar denuncias debera actualizar a la última versión.</string>
     <string name="button_update">Actualizar</string>
     <string name="title_error">Error</string>
@@ -119,9 +117,6 @@
     <string name="captcha_title">Escriba las dos palabras:</string>
     <string name="title_activity_main2">Main2Activity</string>
 
-    <string name="action_settings">Settings</string>
     <string name="send_feedback">Enviar Sugerencia</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_feedback">denunciaactivatuc@gmail.com</string>
 </resources>

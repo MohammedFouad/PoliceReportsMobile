@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
 
     @BindString(R.string.app_name) String title;
+    @BindString(R.string.email_feedback) String email_feedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, SectionMissingPersonActivity.class));
         } else if (id == R.id.nav_send_feedback){
             startActivity(Intent.createChooser(new Intent(Intent.ACTION_SEND).setType("message/rfc822")
-                    .putExtra(Intent.EXTRA_EMAIL, new String[]{"lucianopodazza@gmail.com"})
+                    .putExtra(Intent.EXTRA_EMAIL, new String[]{email_feedback})
                     ,"Send mail..."));
         }
         navView.setCheckedItem(R.id.nav_home);
