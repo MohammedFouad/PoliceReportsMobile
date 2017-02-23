@@ -44,10 +44,10 @@ public class SectionPoliceReportPresenter extends BasePresenter<SectionPoliceRep
                     public void onResponse(JSONObject response) {
                         try {
                             Log.i(sectionPoliceReportView.getClass().getSimpleName(), "status version: " + response.getString("status"));
+                            sectionPoliceReportView.hideProgressBar();
                             if (response.getString("status").equals("outdated")){
                                 sectionPoliceReportView.updateAppMessage();
                             } else {
-                                sectionPoliceReportView.hideProgressBar();
                                 sectionPoliceReportView.showListTypePoliceReport();
                             }
                         } catch (JSONException e) {

@@ -2,6 +2,7 @@ package com.keniobyte.bruino.minsegapp.features.section_police_stations;
 
 import android.content.Context;
 import android.location.Location;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;

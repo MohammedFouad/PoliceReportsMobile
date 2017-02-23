@@ -13,7 +13,7 @@
       {
          "id":2,
          "name":"Comisaria 2da",
-         "jurisdiction_id":3,
+         "jurisdiction_id":2,
          "city":"San Miguel de Tucumán",
          "address":"Buenos Aires 479",
          "phone":"4248006",
@@ -23,7 +23,7 @@
 {
          "id":3,
          "name":"Comisaria 3ra",
-         "jurisdiction_id":2,
+         "jurisdiction_id":3,
          "city":"San Miguel de Tucumán",
          "address":"Lamadrid 2556",
          "phone":"4330439",
