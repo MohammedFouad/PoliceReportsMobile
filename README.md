@@ -1,4 +1,4 @@
-# Police Report Mobile (MinSegApp - Alerta Activa)
+# Police Report Mobile (MinSegApp - Denuncia Activa)
 [![License](https://img.shields.io/aur/license/yaourt.svg?style=flat)](https://github.com/Keniobyte/PoliceReportsMobile/blob/master/LICENCE.txt)
 
 Init    |    Police Stations   |   Police Report  | Wanted
@@ -16,9 +16,6 @@ Android app for citizens to report crimes, drugs, internal affairs, see nearby p
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## How to add a new police station
-Have a look at them at [police-station.json](assets/police-station.json)
-
 ## How to build the code
 
 First add these constants into your `home/.gradle/gradle.properties` file:
@@ -29,7 +26,8 @@ First add these constants into your `home/.gradle/gradle.properties` file:
     MinSegAppApiKeyCaptchaVerify="your key"
 
     # Google Maps Autocomplete
-    MinSegAppMapsAutocomplete="your key"
+    MinSegAppMapsAutocompleteDebug="your key"
+    MinSegAppMapsAutocompleteRelease="your key"
 
     # Google Maps Android
     MinSegAppApiKeyGoogleMapsDebug="your key"
