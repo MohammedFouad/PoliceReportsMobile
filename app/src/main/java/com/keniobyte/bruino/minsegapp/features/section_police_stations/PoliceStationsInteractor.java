@@ -3,6 +3,7 @@ package com.keniobyte.bruino.minsegapp.features.section_police_stations;
 import android.content.Context;
 
 import com.keniobyte.bruino.minsegapp.R;
+import com.keniobyte.bruino.minsegapp.models.PoliceBoss;
 import com.keniobyte.bruino.minsegapp.models.PoliceStation;
 
 import org.json.JSONException;
@@ -39,6 +40,11 @@ public class PoliceStationsInteractor implements IPoliceStationsInteractor {
                     , (float) policeStationJson.getJSONArray("police_stations").getJSONObject(i).getDouble("lat")
                     , (float) policeStationJson.getJSONArray("police_stations").getJSONObject(i).getDouble("lng")
                     , policeStationJson.getJSONArray("police_stations").getJSONObject(i).getInt("jurisdiction_id")
+                    //TODO: found police chief. Dummy example.
+                    , new PoliceBoss(policeStationJson.getJSONArray("police_stations").getJSONObject(i).getInt("id"),
+                    policeStationJson.getJSONArray("police_stations").getJSONObject(i).getString("name"),
+                    "path",
+                    "24242344234")
             ));
         }
         return policeStations;
