@@ -11,6 +11,7 @@ public interface ISectionPoliceReportPresenter {
     void isCurrentVersion(int version) throws JSONException;
     void onClickPoliceReportAircraft();
     void onClickPoliceReportDrugs();
+    void onClickOtherPoliceReport();
     void onClickUpdate();
     void onClickCancelUpdate();
 }

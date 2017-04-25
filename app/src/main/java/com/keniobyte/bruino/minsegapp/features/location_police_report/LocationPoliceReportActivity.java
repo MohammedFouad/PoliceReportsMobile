@@ -284,6 +284,9 @@ public class LocationPoliceReportActivity extends AppCompatActivity implements I
                 toolbar.setTitle(subtitleRequired);
                 toolbar.setSubtitle(titleIncidentLocation);
                 break;
+            case PoliceReport.TYPE_OTHER_POLICE_REPORT:
+                toolbar.setTitle(subtitleRequired);
+                toolbar.setSubtitle(titleIncidentLocation);
         }
     }
 }

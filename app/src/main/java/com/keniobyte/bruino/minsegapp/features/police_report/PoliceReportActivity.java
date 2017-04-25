@@ -71,6 +71,7 @@ public class PoliceReportActivity extends AppCompatActivity implements IPoliceRe
     @BindString(R.string.police_report_aircraft) String titlePoliceReportAircraft;
     @BindString(R.string.police_report_affairs) String titlePoliceReportAffairs;
     @BindString(R.string.police_report_online) String titlePoliceReportOnline;
+    @BindString(R.string.other_police_report) String titleOtherPoliceReport;
     @BindString(R.string.anonymous) String anonymous;
 
     @BindString(R.string.accept) String ok;
@@ -392,6 +393,10 @@ public class PoliceReportActivity extends AppCompatActivity implements IPoliceRe
                 break;
             case PoliceReport.TYPE_POLICE_REPORT_ONLINE:
                 toolbar.setTitle(titlePoliceReportOnline);
+                break;
+            case PoliceReport.TYPE_OTHER_POLICE_REPORT:
+                toolbar.setTitle(titleOtherPoliceReport);
+                toolbar.setSubtitle(anonymous);
                 break;
         }
     }

@@ -76,6 +76,11 @@ public class SectionPoliceReportPresenter extends BasePresenter<SectionPoliceRep
     }
 
     @Override
+    public void onClickOtherPoliceReport() {
+        sectionPoliceReportView.navigationToLocationPoliceReport(PoliceReport.TYPE_OTHER_POLICE_REPORT);
+    }
+
+    @Override
     public void onClickUpdate() {
         sectionPoliceReportView.navigationToAppStore();
     }
