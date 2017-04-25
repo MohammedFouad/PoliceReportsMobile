@@ -67,7 +67,6 @@
                 android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 android:hint="@string/description"
                 android:inputType="textCapSentences|textMultiLine"
                 android:padding="@dimen/activity_vertical_margin" />
