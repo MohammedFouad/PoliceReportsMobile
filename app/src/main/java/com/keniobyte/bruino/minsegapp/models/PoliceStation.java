@@ -9,9 +9,10 @@ public class PoliceStation {
     private String phone;
     private float latitude, longitude;
     private int jurisdiction;
-    private PoliceBoss policeBoss;
 
-    public PoliceStation(int id, String name, String city, String address, String phone, float latitude, float longitude, int jurisdiction, PoliceBoss policeBoss) {
+    private String policeChief;
+
+    public PoliceStation(int id, String name, String city, String address, String phone, float latitude, float longitude, int jurisdiction, String policeChief) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -20,7 +21,7 @@ public class PoliceStation {
         this.latitude = latitude;
         this.longitude = longitude;
         this.jurisdiction = jurisdiction;
-        this.policeBoss = policeBoss;
+        this.policeChief = policeChief;
     }
 
     public int getId() {
@@ -87,11 +88,11 @@ public class PoliceStation {
         this.jurisdiction = jurisdiction;
     }
 
-    public PoliceBoss getPoliceBoss() {
-        return policeBoss;
+    public String getPoliceChief() {
+        return policeChief;
     }
 
-    public void setPoliceBoss(PoliceBoss policeBoss) {
-        this.policeBoss = policeBoss;
+    public void setPoliceChief(String policeChief) {
+        this.policeChief = policeChief;
     }
 }

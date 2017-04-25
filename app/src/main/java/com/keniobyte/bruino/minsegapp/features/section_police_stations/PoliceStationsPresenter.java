@@ -147,7 +147,7 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
 
         for (Marker marker : policeStationsView.getMarkers()) {
 
-            if (marker.getTitle().equals(police_station_name)) {
+            if (marker.getTitle().equals(police_station_name.replaceAll("[^0-9]+", ""))) {
                 marker.showInfoWindow();
                 policeStationsView.setMyLocation(marker);
                 isShowMarker = true;

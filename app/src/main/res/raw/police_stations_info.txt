@@ -8,7 +8,8 @@
          "address":"San Martín 224",
          "phone":"4310480",
          "lat":-26.83053,
-         "lng":-65.20034
+         "lng":-65.20034,
+         "chief":"Julio Ariel Santillan"
       },
       {
          "id":2,
@@ -18,7 +19,8 @@
          "address":"Buenos Aires 479",
          "phone":"4248006",
          "lat":-26.83695,
-         "lng":-65.20799
+         "lng":-65.20799,
+         "chief":"Miguel Arturo Jimenez"
       },
 {
          "id":3,
@@ -28,7 +30,8 @@
          "address":"Lamadrid 2556",
          "phone":"4330439",
          "lat":-26.82634,
-         "lng":-65.23913
+         "lng":-65.23913,
+         "chief":"Victor Hugo Juarez"
       },
 {
          "id":4,
@@ -38,7 +41,8 @@
          "address":"Diagonal Eugenio Mendez 369",
          "phone":"4248021",
          "lat":-26.85148,
-         "lng":-65.19729
+         "lng":-65.19729,
+         "chief":"Hector R. Brito"
       },
 {
          "id":5,
@@ -48,7 +52,8 @@
          "address":"Muñecas 1658",
          "phone":"4273810",
          "lat":-26.80797,
-         "lng":-65.20086
+         "lng":-65.20086,
+         "chief":"Martín Alfredo Moyano"
       },
 {
          "id":6,
@@ -58,7 +63,8 @@
          "address":"España 1715",
          "phone":"4320558",
          "lat":-26.81358,
-         "lng":-65.21961
+         "lng":-65.21961,
+         "chief":"Veliz Manuel Ricardo"
       },
 {
          "id":7,
@@ -68,7 +74,8 @@
          "address":"Don Bosco 2601",
          "phone":"4330573",
          "lat":-26.81971,
-         "lng":-65.23573
+         "lng":-65.23573,
+         "chief":"Carlos Alberto Mendoza"
       },
 {
          "id":8,
@@ -78,7 +85,8 @@
          "address":"Av. Poviña y Alsina",
          "phone":"4392541",
          "lat":-26.83307,
-         "lng":-65.26735
+         "lng":-65.26735,
+         "chief":"Daniel Ramón Paez"
       },
 {
          "id":9,
@@ -88,7 +96,8 @@
          "address":"Av. Democracia y Ayacucho",
          "phone":"4295121",
          "lat":-26.86676,
-         "lng":-65.21921
+         "lng":-65.21921,
+         "chief":"Manuel Ricardo Veliz"
       },
 {
          "id":10,
@@ -98,7 +107,8 @@
          "address":"Blas Parera N° 810",
          "phone":"4282887",
          "lat":-26.8144,
-         "lng":-65.18041
+         "lng":-65.18041,
+         "chief":"Walter Eusebio Ledesma"
       },
 {
          "id":11,
@@ -108,7 +118,8 @@
          "address":"Av Benjamin Aráoz 1095",
          "phone":"4310337",
          "lat":-26.83566,
-         "lng":-65.18091
+         "lng":-65.18091,
+         "chief":"Luis Daniel Suarez"
       },
 {
          "id":12,
@@ -118,7 +129,8 @@
          "address":"Felix de Olazabal 1400",
          "phone":"4347787",
          "lat":-26.80861,
-         "lng":-65.25243
+         "lng":-65.25243,
+         "chief":"Martín Segundo Frias"
       },
 {
          "id":13,
@@ -128,7 +140,8 @@
          "address":"Magallanes 1390",
          "phone":"4366670",
          "lat":-26.85413,
-         "lng":-65.23511
+         "lng":-65.23511,
+         "chief":"Carlos Ismael Acosta"
       },
 {
          "id":14,
@@ -138,7 +151,8 @@
          "address":"Manuel Estrada 2670",
          "phone":"4341256",
          "lat":-26.79588,
-         "lng":-65.23066
+         "lng":-65.23066,
+         "chief":"Enrique Nicolás Montenegro"
       },
 {
          "id":15,
@@ -148,7 +162,8 @@
          "address":"Buenos Aires 479",
          "phone":"4248069",
          "lat":-26.83709,
-         "lng":-65.20807
+         "lng":-65.20807,
+         "chief":"-"
       }
    ]
 }

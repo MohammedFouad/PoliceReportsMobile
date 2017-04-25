@@ -11,8 +11,7 @@
         style="@android:style/TextAppearance.Widget.PopupMenu.Small"
         android:id="@+id/namePoliceStation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comisaria 5ta" />
+        android:layout_height="wrap_content" />
 
     <TextView
         style="@android:style/TextAppearance.Small"
@@ -30,7 +29,7 @@
         style="@android:style/TextAppearance.Widget.PopupMenu.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/police_boss" />
+        android:text="@string/police_chief" />
 
     <TextView
         style="@android:style/TextAppearance.Widget.PopupMenu.Small"
@@ -39,16 +38,15 @@
         android:layout_height="wrap_content" />
 
     <com.keniobyte.bruino.minsegapp.utils.SquareImageView
-        android:id="@+id/profilePoliceBoss"
+        android:id="@+id/profilePoliceChief"
         android:layout_width="90dp"
         android:layout_height="match_parent"
         android:paddingEnd="2dp"
         android:paddingStart="2dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile_police_boss" />
+        android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/phonePoliceBoss"
+        android:id="@+id/phonePoliceChief"
         style="@android:style/TextAppearance.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

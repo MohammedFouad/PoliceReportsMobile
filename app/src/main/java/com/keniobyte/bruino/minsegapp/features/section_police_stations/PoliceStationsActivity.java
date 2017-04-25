@@ -8,11 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +33,7 @@ import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity;
 import com.keniobyte.bruino.minsegapp.models.PoliceStation;
 import com.keniobyte.bruino.minsegapp.utils.SquareImageView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.xmlpull.v1.XmlPullParserException;
@@ -134,17 +137,16 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
                     TextView namePoliceStation = (TextView) view.findViewById(R.id.namePoliceStation);
                     TextView jurisdiction = (TextView) view.findViewById(R.id.idJurisdiction);
                     TextView namePoliceBoss = (TextView) view.findViewById(R.id.namePoliceBoss);
-                    SquareImageView profilePoliceBoss = (SquareImageView) view.findViewById(R.id.profilePoliceBoss);
-                    TextView phone = (TextView) view.findViewById(R.id.phonePoliceBoss);
+                    SquareImageView profilePoliceBoss = (SquareImageView) view.findViewById(R.id.profilePoliceChief);
+                    TextView phone = (TextView) view.findViewById(R.id.phonePoliceChief);
 
                     if (policeStation != null) {
                         namePoliceStation.setText(policeStation.getName());
                         jurisdiction.setText(getString(R.string.jurisdiction) + policeStation.getJurisdiction());
-                        namePoliceBoss.setText(policeStation.getPoliceBoss().getName());
-                        //TODO: image from file
-                        //http://stackoverflow.com/questions/17674634/saving-and-reading-bitmaps-images-from-internal-memory-in-android
-                        //profilePoliceBoss.setImageDrawable();
-                        phone.setText(getString(R.string.phone) + policeStation.getPoliceBoss().getPhone());
+                        namePoliceBoss.setText(policeStation.getPoliceChief());
+                        Log.i(TAG, "android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", ""));
+                        profilePoliceBoss.setImageURI(Uri.parse("android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", "")));
+                        phone.setText(getString(R.string.phone) + policeStation.getPhone());
                     }
 
                     return view;
