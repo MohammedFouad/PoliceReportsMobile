@@ -8,15 +8,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,6 +31,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.kml.KmlLayer;
 import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity;
+import com.keniobyte.bruino.minsegapp.models.PoliceStation;
+import com.keniobyte.bruino.minsegapp.utils.SquareImageView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.xmlpull.v1.XmlPullParserException;
@@ -121,6 +127,36 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
             e.printStackTrace();
         }
         try {
+            this.googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                @Override
+                public View getInfoWindow(Marker marker) {
+                    View view = getLayoutInflater().inflate(R.layout.info_windows_police_station, null);
+
+                    PoliceStation policeStation = presenter.getPoliceStationById(Integer.valueOf(marker.getTitle()));
+
+                    TextView namePoliceStation = (TextView) view.findViewById(R.id.namePoliceStation);
+                    TextView jurisdiction = (TextView) view.findViewById(R.id.idJurisdiction);
+                    TextView namePoliceBoss = (TextView) view.findViewById(R.id.namePoliceBoss);
+                    SquareImageView profilePoliceBoss = (SquareImageView) view.findViewById(R.id.profilePoliceChief);
+                    TextView phone = (TextView) view.findViewById(R.id.phonePoliceChief);
+
+                    if (policeStation != null) {
+                        namePoliceStation.setText(policeStation.getName());
+                        jurisdiction.setText(getString(R.string.jurisdiction) + policeStation.getJurisdiction());
+                        namePoliceBoss.setText(policeStation.getPoliceChief());
+                        Log.i(TAG, "android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", ""));
+                        profilePoliceBoss.setImageURI(Uri.parse("android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", "")));
+                        phone.setText(getString(R.string.phone) + policeStation.getPhone());
+                    }
+
+                    return view;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+                    return null;
+                }
+            });
             presenter.showPoliceStation();
         } catch (JSONException | IOException e) {
             e.printStackTrace();

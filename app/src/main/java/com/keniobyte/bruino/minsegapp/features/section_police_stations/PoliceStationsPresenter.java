@@ -11,7 +11,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.kml.KmlContainer;
 import com.google.maps.android.kml.KmlPlacemark;
 import com.google.maps.android.kml.KmlPolygon;
-import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.models.PoliceStation;
 import com.keniobyte.bruino.minsegapp.views.base.BasePresenter;
 import com.keniobyte.bruino.minsegapp.utils.Polygon.Point;
@@ -56,8 +55,7 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(new LatLng(policeStations.get(i).getLatitude(), policeStations.get(i).getLongitude()))
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                    .title(policeStations.get(i).getName())
-                    .snippet(context.getResources().getString(R.string.jurisdiction) + " " + policeStations.get(i).getId());
+                    .title(String.valueOf(policeStations.get(i).getId()));
             markerOptionsArrayList.add(markerOptions);
         }
         policeStationsView.setMarkersPoliceStations(policeStationsView.showPoliceStations(markerOptionsArrayList));
@@ -95,6 +93,18 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
     @Override
     public void onClickListPoliceStations() {
         policeStationsView.navigationToListPoliceStations();
+    }
+
+    @Override
+    public PoliceStation getPoliceStationById(Integer id) {
+        PoliceStation policeStation = null;
+        for (int i = 0; i < policeStations.size(); i++) {
+            if (policeStations.get(i).getId() == id) {
+                policeStation = policeStations.get(i);
+                break;
+            }
+        }
+        return policeStation;
     }
 
     private int containsJurisdiction(Location location){
@@ -137,7 +147,7 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
 
         for (Marker marker : policeStationsView.getMarkers()) {
 
-            if (marker.getTitle().equals(police_station_name)) {
+            if (marker.getTitle().equals(police_station_name.replaceAll("[^0-9]+", ""))) {
                 marker.showInfoWindow();
                 policeStationsView.setMyLocation(marker);
                 isShowMarker = true;

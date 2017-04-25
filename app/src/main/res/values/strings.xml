@@ -119,6 +119,8 @@
 
     <string name="send_feedback">Enviar Sugerencia</string>
     <string name="email_feedback">denunciaactivatuc@gmail.com</string>
+
     <string name="other_police_report">Otras Denuncias</string>
     <string name="other_description">Denuncie distintos hechos delictivos.</string>
+    <string name="police_chief">Comisario Principal</string>
 </resources>
