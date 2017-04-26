@@ -18,7 +18,7 @@ import cz.msebera.android.httpclient.Header;
 
 /**
  * @author bruino
- * @version 02/01/17.
+ * @version 26/04/17.
  */
 
 public class PoliceReportInteractor implements IPoliceReportInteractor {
@@ -99,13 +99,11 @@ public class PoliceReportInteractor implements IPoliceReportInteractor {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e(TAG, errorResponse.toString());
                 listener.sendReportPoliceError();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.e(TAG, responseString);
                 listener.sendReportPoliceError();
             }
         });

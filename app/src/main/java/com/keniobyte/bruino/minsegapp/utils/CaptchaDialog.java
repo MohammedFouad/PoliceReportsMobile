@@ -26,7 +26,7 @@ import butterknife.Unbinder;
 
 /**
  * @author  bruino
- * @version 25/12/16.
+ * @version 26/04/17.
  */
 
 public class CaptchaDialog extends DialogFragment {
@@ -45,9 +45,11 @@ public class CaptchaDialog extends DialogFragment {
     final ReCaptcha.OnShowChallengeListener onShowChallengeListener = new ReCaptcha.OnShowChallengeListener() {
         @Override
         public void onChallengeShown(boolean shown) {
-            progressBar.setVisibility(View.INVISIBLE);
-            captchaEditText.setVisibility(View.VISIBLE);
-            captchaEditText.setText("");
+            if (progressBar != null && captchaEditText != null) {
+                progressBar.setVisibility(View.INVISIBLE);
+                captchaEditText.setVisibility(View.VISIBLE);
+                captchaEditText.setText("");
+            }
         }
     };
 
