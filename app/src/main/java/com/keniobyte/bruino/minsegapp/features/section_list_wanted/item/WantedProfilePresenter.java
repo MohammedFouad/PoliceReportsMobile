@@ -17,7 +17,7 @@ import java.io.IOException;
 
 /**
  * @author bruino
- * @version 12/01/17.
+ * @version 26/04/17.
  */
 
 public class WantedProfilePresenter extends BasePresenter<WantedProfileActivity> implements IWantedProfilePresenter {
@@ -38,29 +38,13 @@ public class WantedProfilePresenter extends BasePresenter<WantedProfileActivity>
 
         String url = wantedProfileView.getUrlProfile();
         String name = wantedProfileView.getWantedName();
-        String lastTimeSee = context.getResources().getString(R.string.last_time_see) + " " + wantedProfileView.getLastTimeSee();
-        int reward = wantedProfileView.getWantedReward();
         String crime = wantedProfileView.getWantedCrime();
         String age = String.valueOf(wantedProfileView.getWantedAge()) + " " + context.getResources().getString(R.string.year);
-        String gender = wantedProfileView.getGender();
-        String description = wantedProfileView.getDescription();
 
         wantedProfileView.setWantedProfileImage(url);
         wantedProfileView.setWantedName(name);
-        wantedProfileView.setWantedLastTimeSee(lastTimeSee);
-        if (reward > 0){
-            wantedProfileView.setWantedReward("$" + String.valueOf(reward));
-        } else {
-            wantedProfileView.hideWantedReward();
-        }
         wantedProfileView.setWantedCrime(crime);
         wantedProfileView.setWantedAge(age);
-        wantedProfileView.setWantedGender(gender);
-        if (description != null){
-            wantedProfileView.setWantedDescription(description);
-        } else {
-            wantedProfileView.hideDescriptionView();
-        }
     }
 
     @Override

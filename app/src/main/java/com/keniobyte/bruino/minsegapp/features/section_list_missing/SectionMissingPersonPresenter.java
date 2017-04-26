@@ -25,7 +25,7 @@ import java.util.Locale;
 
 /**
  * @author bruino
- * @version 09/01/17.
+ * @version 26/04/17.
  */
 
 public class SectionMissingPersonPresenter extends BasePresenter<SectionMissingPersonActivity> implements ISectionMissingPersonPresenter {
@@ -80,7 +80,7 @@ public class SectionMissingPersonPresenter extends BasePresenter<SectionMissingP
             if (!jsonObject.getJSONArray("r").getJSONObject(i).getBoolean("missing_found")){
                 Person person = new Person();
                 person.setId(jsonObject.getJSONArray("r").getJSONObject(i).getInt("id"));
-                person.setFullName(jsonObject.getJSONArray("r").getJSONObject(i).getString("last_name"));
+                person.setFullName(jsonObject.getJSONArray("r").getJSONObject(i).getString("last_name") + " " + jsonObject.getJSONArray("r").getJSONObject(i).getString("name"));
                 person.setLastTimeSee(convertToDate(jsonObject.getJSONArray("r").getJSONObject(i).getString("last_time_seen")));
                 person.setAge(jsonObject.getJSONArray("r").getJSONObject(i).getInt("age"));
                 person.setUrlProfile(context.getResources().getString(R.string.url_base_picture_missing)

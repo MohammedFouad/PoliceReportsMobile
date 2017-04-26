@@ -38,21 +38,11 @@ public class MissingProfilePresenter extends BasePresenter<MissingProfileActivit
 
         String url = missingProfileView.getUrlProfile();
         String name = missingProfileView.getMissingName();
-        String lastTimeSee = context.getResources().getString(R.string.last_time_see) + " " + missingProfileView.getLastTimeSee();
         String age = String.valueOf(missingProfileView.getMissingAge()) + " " + context.getResources().getString(R.string.year);
-        String gender = missingProfileView.getGender();
-        String description = missingProfileView.getDescription();
 
         missingProfileView.setMissingProfileImage(url);
         missingProfileView.setMissingName(name);
-        missingProfileView.setMissingLastTimeSee(lastTimeSee);
         missingProfileView.setMissingAge(age);
-        missingProfileView.setMissingGender(gender);
-        if (description != null){
-            missingProfileView.setMissingDescription(description);
-        } else {
-            missingProfileView.hideDescriptionView();
-        }
     }
 
     @Override
