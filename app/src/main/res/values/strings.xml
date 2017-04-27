@@ -89,7 +89,9 @@
     <string name="police_report_online">Denuncia Online</string>
     <string name="anonymous">Anónima</string>
 
-    <string name="perpetrator_name">Nombre del Acusado</string>
+    <string name="perpetrator_name_required">Nombre del Acusado</string>
+    <string name="perpetrator_name_optional">Nombre del Acusado(Opcional)</string>
+    <string name="perpretator_nickname_optional">Nombre o Apodo del Acusado(Opcional)</string>
     <string name="description">Descripción</string>
     <string name="add_multimedia">Adjuntar Foto</string>
     <string name="send_police_report">Denunciar</string>

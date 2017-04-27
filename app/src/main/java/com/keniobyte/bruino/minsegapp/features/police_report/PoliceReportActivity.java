@@ -72,6 +72,7 @@ public class PoliceReportActivity extends AppCompatActivity implements IPoliceRe
     @BindString(R.string.police_report_affairs) String titlePoliceReportAffairs;
     @BindString(R.string.police_report_online) String titlePoliceReportOnline;
     @BindString(R.string.other_police_report) String titleOtherPoliceReport;
+
     @BindString(R.string.anonymous) String anonymous;
 
     @BindString(R.string.accept) String ok;
@@ -390,6 +391,7 @@ public class PoliceReportActivity extends AppCompatActivity implements IPoliceRe
             case PoliceReport.TYPE_POLICE_REPORT_DRUGS:
                 toolbar.setTitle(titlePoliceReportDrugs);
                 toolbar.setSubtitle(anonymous);
+                namePerpetratorEditText.setHint(getString(R.string.perpretator_nickname_optional));
                 break;
             case PoliceReport.TYPE_POLICE_REPORT_ONLINE:
                 toolbar.setTitle(titlePoliceReportOnline);
