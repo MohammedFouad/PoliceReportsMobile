@@ -12,9 +12,7 @@ import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.models.Person;
 import com.squareup.picasso.Picasso;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,8 +40,6 @@ public class MissingPersonAdapterRecycler extends RecyclerView.Adapter<MissingPe
     @Override
     public void onBindViewHolder(PersonWantedViewHolder holder, int position) {
         holder.nameWanted.setText(MissingPersonList.get(position).getFullName());
-        holder.lastTimeSee.setText( new SimpleDateFormat("dd MMM yyyy", Locale.US)
-                .format(MissingPersonList.get(position).getLastTimeSee()));
         Picasso.with(context).load(MissingPersonList.get(position).getUrlProfile())
                 .resize(80, 80)
                 .centerCrop()
@@ -61,7 +57,6 @@ public class MissingPersonAdapterRecycler extends RecyclerView.Adapter<MissingPe
 
     public static class PersonWantedViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.nameWantedTextView) TextView nameWanted;
-        @BindView(R.id.lastTimeSeeTextView) TextView lastTimeSee;
         @BindView(R.id.personWantedImageView) ImageView personWantedImage;
 
         public PersonWantedViewHolder(View itemView) {

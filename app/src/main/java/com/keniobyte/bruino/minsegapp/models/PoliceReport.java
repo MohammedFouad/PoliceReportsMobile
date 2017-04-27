@@ -11,6 +11,7 @@ public class PoliceReport {
     public final static String TYPE_POLICE_REPORT_DRUGS = "drugs";
     public final static String TYPE_POLICE_REPORT_AFFAIR = "corruption";
     public final static String TYPE_POLICE_REPORT_AIRCRAFT = "suspect_aircraft";
+    public final static String TYPE_OTHER_POLICE_REPORT = "other";
     public final static String TYPE_POLICE_REPORT_ONLINE = "online";
 
     private String typePoliceReport;

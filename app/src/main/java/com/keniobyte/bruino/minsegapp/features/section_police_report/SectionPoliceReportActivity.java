@@ -156,7 +156,7 @@ public class SectionPoliceReportActivity extends AppCompatActivity implements IS
                 Uri.parse(URL_APP_STORE)));
     }
 
-    @OnClick({R.id.policeReportDrugsButton, R.id.policeReportAircraftButton})
+    @OnClick({R.id.policeReportDrugsButton, R.id.policeReportAircraftButton, R.id.otherPoliceReportButton})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.policeReportDrugsButton:
@@ -165,6 +165,8 @@ public class SectionPoliceReportActivity extends AppCompatActivity implements IS
             case R.id.policeReportAircraftButton:
                 presenter.onClickPoliceReportAircraft();
                 break;
+            case R.id.otherPoliceReportButton:
+                presenter.onClickOtherPoliceReport();
         }
     }
 }

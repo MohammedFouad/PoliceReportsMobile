@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="@string/perpetrator_name"
+                android:hint="@string/perpetrator_name_optional"
                 android:inputType="textCapWords|textPersonName"
                 android:maxLines="1"
                 android:padding="@dimen/activity_vertical_margin" />
@@ -67,7 +67,6 @@
                 android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 android:hint="@string/description"
                 android:inputType="textCapSentences|textMultiLine"
                 android:padding="@dimen/activity_vertical_margin" />

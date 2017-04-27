@@ -39,7 +39,8 @@ public class PoliceStationsInteractor implements IPoliceStationsInteractor {
                     , (float) policeStationJson.getJSONArray("police_stations").getJSONObject(i).getDouble("lat")
                     , (float) policeStationJson.getJSONArray("police_stations").getJSONObject(i).getDouble("lng")
                     , policeStationJson.getJSONArray("police_stations").getJSONObject(i).getInt("jurisdiction_id")
-            ));
+                    , policeStationJson.getJSONArray("police_stations").getJSONObject(i).getString("chief"))
+            );
         }
         return policeStations;
     }

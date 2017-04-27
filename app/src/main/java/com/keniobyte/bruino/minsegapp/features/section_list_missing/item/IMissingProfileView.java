@@ -12,18 +12,12 @@ public interface IMissingProfileView {
     int getId();
     String getUrlProfile();
     String getMissingName();
-    String getLastTimeSee();
     int getMissingAge();
-    String getGender();
-    String getDescription();
     ImageView getMissingProfileImage();
 
     void setMissingProfileImage(String url);
     void setMissingName(String name);
-    void setMissingLastTimeSee(String missingLastTimeSee);
     void setMissingAge(String age);
-    void setMissingGender(String gender);
-    void setMissingDescription(String description);
     void showProgress();
     void hideProgress();
     void onClickShare();
@@ -31,5 +25,4 @@ public interface IMissingProfileView {
     void navigationToMissingReport();
     void sharedMissingPerson(String body, Uri uriImage);
     void sharedMessageError();
-    void hideDescriptionView();
 }

@@ -10,9 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,16 +34,12 @@ public class MissingProfileActivity extends AppCompatActivity implements IMissin
     @BindView(R.id.missingProfileImageView) SquareImageView missingProfileImageView;
     @BindView(R.id.loadImageProgressBar) ProgressBar loadImageProgressBar;
     @BindView(R.id.missingNameTextView) TextView missingNameTextView;
-    @BindView(R.id.missingLastTimeSeeTextView) TextView missingLastTimeSeeTextView;
     @BindView(R.id.missingAgeTextView) TextView missingAgeTextView;
-    @BindView(R.id.missingGenderTextView) TextView missingGenderTextView;
-    @BindView(R.id.missingDescriptionTextView) TextView missingDescriptionTextView;
 
     @BindString(R.string.section_missing) String titleToolbar;
     @BindString(R.string.error_share) String sharedMessageError;
     @BindDrawable(R.drawable.ic_arrow_back_white_24dp) Drawable arrowBack;
     @BindDrawable(R.drawable.ic_error_black_24dp) Drawable error;
-    @BindView(R.id.descriptionView) LinearLayout descriptionView;
 
     private Context context = this;
     private MissingProfilePresenter presenter;
@@ -108,24 +102,10 @@ public class MissingProfileActivity extends AppCompatActivity implements IMissin
         return getIntent().getExtras().getString("name");
     }
 
-    @Override
-    public String getLastTimeSee() {
-        return getIntent().getExtras().getString("lastTimeSeen");
-    }
 
     @Override
     public int getMissingAge() {
         return getIntent().getExtras().getInt("age");
-    }
-
-    @Override
-    public String getGender() {
-        return getIntent().getExtras().getString("gender");
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
     }
 
     @Override
@@ -154,23 +134,8 @@ public class MissingProfileActivity extends AppCompatActivity implements IMissin
     }
 
     @Override
-    public void setMissingLastTimeSee(String missingLastTimeSee) {
-        missingLastTimeSeeTextView.setText(missingLastTimeSee);
-    }
-
-    @Override
     public void setMissingAge(String age) {
         missingAgeTextView.setText(age);
-    }
-
-    @Override
-    public void setMissingGender(String gender) {
-        missingGenderTextView.setText(gender);
-    }
-
-    @Override
-    public void setMissingDescription(String description) {
-        missingDescriptionTextView.setText(description);
     }
 
     @Override
@@ -211,10 +176,5 @@ public class MissingProfileActivity extends AppCompatActivity implements IMissin
     @Override
     public void sharedMessageError() {
         Toast.makeText(context, sharedMessageError, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void hideDescriptionView() {
-        ((ViewGroup) descriptionView.getParent()).removeView(descriptionView);
     }
 }

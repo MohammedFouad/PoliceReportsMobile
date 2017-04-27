@@ -36,13 +36,8 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     @BindView(R.id.wantedProfileImageView) SquareImageView wantedProfileImageView;
     @BindView(R.id.loadImageWantedProgressBar) ProgressBar loadImageWantedProgressBar;
     @BindView(R.id.wantedNameTextView) TextView wantedNameTextView;
-    @BindView(R.id.wantedLastTimeSeeTextView) TextView wantedLastTimeSeeTextView;
-    @BindView(R.id.wantedRewardTextView) TextView wantedRewardTextView;
     @BindView(R.id.wantedCrimeTextView) TextView wantedCrimeTextView;
     @BindView(R.id.wantedAgeTextView) TextView wantedAgeTextView;
-    @BindView(R.id.wantedGenderTextView) TextView wantedGenderTextView;
-    @BindView(R.id.wantedDescriptionTextView) TextView wantedDescriptionTextView;
-    @BindView(R.id.wantedDescriptionView) LinearLayout wantedDescriptionView;
 
     @BindString(R.string.section_wanted) String titleToolbar;
     @BindString(R.string.error_share) String sharedMessageError;
@@ -111,16 +106,6 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     }
 
     @Override
-    public String getLastTimeSee() {
-        return getIntent().getExtras().getString("lastTimeSeen");
-    }
-
-    @Override
-    public int getWantedReward() {
-        return getIntent().getExtras().getInt("reward");
-    }
-
-    @Override
     public String getWantedCrime() {
         return getIntent().getExtras().getString("crime");
     }
@@ -128,16 +113,6 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     @Override
     public int getWantedAge() {
         return getIntent().getExtras().getInt("age");
-    }
-
-    @Override
-    public String getGender() {
-        return getIntent().getExtras().getString("gender");
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
     }
 
     @Override
@@ -166,16 +141,6 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     }
 
     @Override
-    public void setWantedLastTimeSee(String missingLastTimeSee) {
-        wantedLastTimeSeeTextView.setText(missingLastTimeSee);
-    }
-
-    @Override
-    public void setWantedReward(String reward) {
-        wantedRewardTextView.setText(reward);
-    }
-
-    @Override
     public void setWantedCrime(String crime) {
         wantedCrimeTextView.setText(crime);
     }
@@ -183,16 +148,6 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     @Override
     public void setWantedAge(String age) {
         wantedAgeTextView.setText(age);
-    }
-
-    @Override
-    public void setWantedGender(String gender) {
-        wantedGenderTextView.setText(gender);
-    }
-
-    @Override
-    public void setWantedDescription(String description) {
-        wantedDescriptionTextView.setText(description);
     }
 
     @Override
@@ -233,15 +188,5 @@ public class WantedProfileActivity extends AppCompatActivity implements IWantedP
     @Override
     public void sharedMessageError() {
         Toast.makeText(context, sharedMessageError, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void hideDescriptionView() {
-        ((ViewGroup) wantedDescriptionView.getParent()).removeView(wantedDescriptionView);
-    }
-
-    @Override
-    public void hideWantedReward() {
-        wantedRewardTextView.setVisibility(View.INVISIBLE);
     }
 }
