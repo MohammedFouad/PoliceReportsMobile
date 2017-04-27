@@ -135,14 +135,12 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
                     PoliceStation policeStation = presenter.getPoliceStationById(Integer.valueOf(marker.getTitle()));
 
                     TextView namePoliceStation = (TextView) view.findViewById(R.id.namePoliceStation);
-                    TextView jurisdiction = (TextView) view.findViewById(R.id.idJurisdiction);
                     TextView namePoliceBoss = (TextView) view.findViewById(R.id.namePoliceBoss);
                     SquareImageView profilePoliceBoss = (SquareImageView) view.findViewById(R.id.profilePoliceChief);
                     TextView phone = (TextView) view.findViewById(R.id.phonePoliceChief);
 
                     if (policeStation != null) {
                         namePoliceStation.setText(policeStation.getName());
-                        jurisdiction.setText(getString(R.string.jurisdiction) + policeStation.getJurisdiction());
                         namePoliceBoss.setText(policeStation.getPoliceChief());
                         Log.i(TAG, "android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", ""));
                         profilePoliceBoss.setImageURI(Uri.parse("android.resource://"+getPackageName()+"/raw/chief_"+policeStation.getName().replaceAll("[^0-9]+", "")));
