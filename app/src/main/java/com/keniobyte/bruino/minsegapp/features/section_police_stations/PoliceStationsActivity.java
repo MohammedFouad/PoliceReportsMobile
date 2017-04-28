@@ -61,11 +61,13 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
 
     @BindString(R.string.section_police_stations) String title;
     @BindString(R.string.accept) String ok;
+    @BindString(R.string.cancel) String cancel;
     @BindString(R.string.title_attention) String titleWarning;
     @BindString(R.string.text_permissions_location) String messagePermissionLocation;
     @BindString(R.string.text_gps) String messageGps;
     @BindString(R.string.not_permission_location) String messageNotPermissionLocation;
     @BindString(R.string.not_found_range) String messageNotFoundRange;
+    @BindString(R.string.message_call_police_station) String messageCallPoliceStation;
 
     @BindDrawable(R.drawable.ic_arrow_back_white_24dp) Drawable arrowBack;
 
@@ -120,6 +122,13 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(LAT, LNG), 11));
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         this.googleMap = googleMap;
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        } else {
+            googleMap.setMyLocationEnabled(true);
+        }
         try {
             jurisdictionKmlLayer = new KmlLayer(googleMap, R.raw.police_stations_jurisdictions, context);
             jurisdictionKmlLayer.addLayerToMap();
@@ -172,6 +181,38 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
         ArrayList<Marker> markers = new ArrayList<>();
         for (MarkerOptions markerOptions : markerOptionsArrayList) {
             Marker marker = googleMap.addMarker(markerOptions);
+            googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    final PoliceStation policeStation = presenter.getPoliceStationById(Integer.valueOf(marker.getTitle()));
+
+                    new AlertDialog.Builder(context)
+                            .setTitle(titleWarning)
+                            .setMessage(messageCallPoliceStation
+                                    + " " + policeStation.getName())
+                            .setCancelable(true)
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    if (PackageManager.PERMISSION_GRANTED !=  ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE)) {
+
+                                        if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.CALL_PHONE)) {
+                                            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CALL_PHONE}, 6);
+                                        } else {
+                                            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CALL_PHONE}, 6);
+                                        }
+                                    } else {
+                                        context.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + policeStation.getPhone())));
+                                    }
+                                }
+                            })
+                            .setNegativeButton(cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) { }
+                            })
+                            .show();
+                }
+            });
             if (marker != null){
                 markers.add(marker);
             }
