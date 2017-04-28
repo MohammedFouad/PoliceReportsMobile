@@ -45,6 +45,7 @@
     <string name="button_update">Actualizar</string>
     <string name="title_error">Error</string>
     <string name="message_error_current_version">Existen problemas de conexión. Verifique su acceso a internet o intente más tarde.</string>
+    <string name="message_call_police_station">Desea llamar a la</string>
     <!-- Register Users Date -->
     <string name="title_form">Formulario Registro</string>
     <string name="name">Nombre</string>
