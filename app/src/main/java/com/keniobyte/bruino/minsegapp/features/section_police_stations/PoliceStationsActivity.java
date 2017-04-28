@@ -125,7 +125,7 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
+            Log.i(TAG, "not permission access fine location");
         } else {
             googleMap.setMyLocationEnabled(true);
         }
