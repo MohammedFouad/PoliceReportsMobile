@@ -122,6 +122,13 @@ public class PoliceStationsActivity extends AppCompatActivity implements IPolice
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(LAT, LNG), 11));
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         this.googleMap = googleMap;
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        } else {
+            googleMap.setMyLocationEnabled(true);
+        }
         try {
             jurisdictionKmlLayer = new KmlLayer(googleMap, R.raw.police_stations_jurisdictions, context);
             jurisdictionKmlLayer.addLayerToMap();
