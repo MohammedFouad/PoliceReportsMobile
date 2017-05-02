@@ -133,8 +133,6 @@ public class SectionMissingPersonActivity extends AppCompatActivity implements I
                 .putExtra("id", person.getId())
                 .putExtra("name", person.getFullName())
                 .putExtra("age", person.getAge())
-                .putExtra("lastTimeSeen", new SimpleDateFormat("dd MMM yyyy", Locale.US)
-                        .format(person.getLastTimeSee()))
                 .putExtra("imageURL", person.getUrlProfile()));
     }
 }

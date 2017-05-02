@@ -81,7 +81,6 @@ public class SectionMissingPersonPresenter extends BasePresenter<SectionMissingP
                 Person person = new Person();
                 person.setId(jsonObject.getJSONArray("r").getJSONObject(i).getInt("id"));
                 person.setFullName(jsonObject.getJSONArray("r").getJSONObject(i).getString("last_name") + " " + jsonObject.getJSONArray("r").getJSONObject(i).getString("name"));
-                person.setLastTimeSee(convertToDate(jsonObject.getJSONArray("r").getJSONObject(i).getString("last_time_seen")));
                 person.setAge(jsonObject.getJSONArray("r").getJSONObject(i).getInt("age"));
                 person.setUrlProfile(context.getResources().getString(R.string.url_base_picture_missing)
                         + jsonObject.getJSONArray("r").getJSONObject(i).getString("picture"));
