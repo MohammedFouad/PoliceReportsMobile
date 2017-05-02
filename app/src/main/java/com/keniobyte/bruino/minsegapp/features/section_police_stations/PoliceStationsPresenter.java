@@ -82,6 +82,9 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                    } else {
+                        policeStationsView.hideProgressBar();
+                        policeStationsView.notFoundRangeMessage();
                     }
                 }
             });
