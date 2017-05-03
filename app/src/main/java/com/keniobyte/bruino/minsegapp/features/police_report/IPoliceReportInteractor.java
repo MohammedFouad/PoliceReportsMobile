@@ -14,6 +14,7 @@ public interface IPoliceReportInteractor {
         void onProgress(int progress);
         void sendReportPoliceError();
         void reportPoliceCoolDown();
+        void errorAnonymousIdError();
         void onSuccess();
     }
 }

@@ -91,6 +91,10 @@ public class PoliceReportInteractor implements IPoliceReportInteractor {
                         case "cool_down":
                             listener.reportPoliceCoolDown();
                             break;
+
+                        case "anonymous_id_error":
+                            listener.errorAnonymousIdError();
+                            break;
                     }
                 } catch (JSONException e) {
                     Log.e(TAG, e.toString());

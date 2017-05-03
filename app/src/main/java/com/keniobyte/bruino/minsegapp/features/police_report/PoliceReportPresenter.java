@@ -100,6 +100,11 @@ public class PoliceReportPresenter extends BasePresenter<PoliceReportActivity> i
     }
 
     @Override
+    public void errorAnonymousIdError() {
+        policeReportView.sendPoliceReportMessageError(R.string.msj_anonymous_id_error);
+    }
+
+    @Override
     public void onSuccess() {
         policeReportView.hideProgress();
         policeReportView.sendPoliceReportMessageSuccess();
