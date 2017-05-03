@@ -140,6 +140,7 @@ public class PoliceStationsPresenter extends BasePresenter<PoliceStationsActivit
 
             if (policeStations.get(i).getJurisdiction() == num_jurisdiction) {
                 station_name = policeStations.get(i).getName();
+                break;
             }
         }
         return station_name;
