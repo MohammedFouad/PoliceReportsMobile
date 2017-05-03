@@ -101,9 +101,9 @@
     <string name="timeButton">Hora</string>
     <string name="send_failure">Fallo al enviar la denuncia. Verifique su conexión a internet o intente más tarde.</string>
 
-    <string name="send_success">Denuncia enviada con Éxito. Un operador atenderá pronto su denuncia.</string>
+    <string name="send_success">Denuncia enviada con Éxito. \nUn operador atenderá pronto su denuncia.</string>
     <string name="msj_cool_down">Excedió el límite de denuncias. Vuelva a intentarlo en 30 minutos.</string>
-    <string name="msj_anonymous_id_error">Error de instalación. Por favor desinstale la aplicación, reinicie el celular y vuelva a instalar. Gracias.</string>
+    <string name="msj_anonymous_id_error">Error de instalación. \nPor favor desinstale la aplicación, reinicie el celular y vuelva a instalar. Gracias.</string>
 
     <string name="sending">Enviando...</string>
     <string name="wait_please">Espere por favor...</string>
