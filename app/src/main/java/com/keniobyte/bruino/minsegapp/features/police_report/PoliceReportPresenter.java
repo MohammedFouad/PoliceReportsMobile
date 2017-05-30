@@ -1,5 +1,7 @@
 package com.keniobyte.bruino.minsegapp.features.police_report;
 
+import android.util.Log;
+
 import com.kbeanie.multipicker.api.entity.ChosenImage;
 import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.models.PoliceReport;

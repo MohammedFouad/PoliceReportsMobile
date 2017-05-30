@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 23
@@ -8,7 +10,7 @@ android {
         applicationId "com.keniobyte.bruino.minsegapp"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 10
+        versionCode 11
         versionName "1.1.1"
         resValue "string", "LOCATION", "-26.8167,-65.2167"
         // Get Api Keys from gradle.properties environment variables
@@ -50,6 +52,8 @@ dependencies {
 
 
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services:10.2.0'
+
     compile 'com.android.support:design:23.4.0'
     compile 'info.android15.nucleus:nucleus:4.0.0'
     compile 'com.jakewharton:butterknife:8.4.0'
@@ -69,4 +73,14 @@ dependencies {
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     provided 'frankiesardo:icepick-processor:3.2.0'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.anko:anko-common:$anko_version"
+
+    compile "org.jetbrains.anko:anko-sdk15:$anko_version"
+    compile "org.jetbrains.anko:anko-design:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+}
+repositories {
+    mavenCentral()
 }

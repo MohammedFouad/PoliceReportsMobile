@@ -17,6 +17,7 @@
         android:required="true" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -45,7 +46,6 @@
             android:value="@string/API_KEY_GOOGLE_MAPS" />
 
         <activity android:name=".features.police_report.PoliceReportActivity" />
-        <activity android:name=".features.location_police_report.LocationPoliceReportActivity" />
         <activity android:name=".features.section_police_report.SectionPoliceReportActivity" />
         <activity android:name=".features.section_list_wanted.SectionWantedPersonActivity" />
         <activity android:name=".features.section_list_missing.SectionMissingPersonActivity" />
@@ -54,7 +54,8 @@
         <activity android:name=".features.section_list_missing.missing_report.MissingReportActivity" />
         <activity android:name=".features.section_list_wanted.wanted_report.WantedReportActivity" />
         <activity android:name=".features.section_police_stations.PoliceStationsActivity" />
-        <activity android:name=".features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity"></activity>
+        <activity android:name=".features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity" />
+        <activity android:name=".features.location_police_report.LocationPoliceReportActivity" />
     </application>
 
 </manifest>
