@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.features.location_police_report.LocationPoliceReportActivity;
+import com.keniobyte.bruino.minsegapp.features.location_police_report.LocationPoliceReportActivity2;
 
 import org.json.JSONException;
 
@@ -146,7 +147,7 @@ public class SectionPoliceReportActivity extends AppCompatActivity implements IS
 
     @Override
     public void navigationToLocationPoliceReport(String typeReport) {
-        startActivity(new Intent(context, LocationPoliceReportActivity.class)
+        startActivity(new Intent(context, LocationPoliceReportActivity2.class)
                 .putExtra("type_report", typeReport));
     }
 

@@ -127,4 +127,7 @@
     <string name="other_police_report">Otras Denuncias</string>
     <string name="other_description">Denuncie distintos hechos delictivos.</string>
     <string name="police_chief">Comisario Principal</string>
+    <string name="title_activity_location_police_report2">LocationPoliceReportActivity2</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

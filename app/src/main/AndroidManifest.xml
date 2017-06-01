@@ -56,6 +56,10 @@
         <activity android:name=".features.section_police_stations.PoliceStationsActivity" />
         <activity android:name=".features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity" />
         <activity android:name=".features.location_police_report.LocationPoliceReportActivity" />
+        <activity
+            android:name=".features.location_police_report.LocationPoliceReportActivity2"
+            android:label="@string/title_activity_location_police_report2"
+            android:theme="@style/MyAppTheme"></activity>
     </application>
 
 </manifest>
