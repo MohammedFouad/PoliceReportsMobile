@@ -16,7 +16,7 @@ import com.keniobyte.bruino.minsegapp.R
  * @version 31/05/17.
  */
 
-class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback {
+class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdateableStreetView {
     var streetview: StreetViewPanorama? = null
     private val ARG_PARAM1 = "lat"
     private val ARG_PARAM2 = "lng"
@@ -38,7 +38,7 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) {
+        if (arguments != null && (lat != arguments.getDouble(ARG_PARAM1) || lng != arguments.getDouble(ARG_PARAM2))) {
             lat = arguments.getDouble(ARG_PARAM1)
             lng = arguments.getDouble(ARG_PARAM2)
         }
@@ -46,17 +46,21 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback {
         var streetViewPanoramaFragment: SupportStreetViewPanoramaFragment? = childFragmentManager.findFragmentById(R.id.street_view_panorama) as SupportStreetViewPanoramaFragment?
         if (streetViewPanoramaFragment == null) {
             streetViewPanoramaFragment = SupportStreetViewPanoramaFragment.newInstance()
-            childFragmentManager.beginTransaction().replace(R.id.street_view_panorama, streetViewPanoramaFragment).commit()
+            childFragmentManager.beginTransaction().replace(R.id.street_view_panorama, streetViewPanoramaFragment, "street_view").commit()
         }
         streetViewPanoramaFragment!!.getStreetViewPanoramaAsync(this)
     }
 
     override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama?) {
         streetview = streetViewPanorama
-        streetview?.apply{
+        streetview?.apply {
             if (lat != null && lng != null) setPosition(LatLng(lat!!, lng!!))
             isUserNavigationEnabled = true
             isStreetNamesEnabled = true
         }
+    }
+
+    override fun update(data: LatLng) {
+        streetview?.setPosition(data)
     }
 }

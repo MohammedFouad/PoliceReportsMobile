@@ -72,11 +72,11 @@ public class SectionPoliceReportActivity extends AppCompatActivity implements IS
 
         presenter = new SectionPoliceReportPresenter(context);
         presenter.addView(this);
-        try {
+        /*try {
             presenter.isCurrentVersion(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).versionCode);
         } catch (PackageManager.NameNotFoundException | JSONException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override

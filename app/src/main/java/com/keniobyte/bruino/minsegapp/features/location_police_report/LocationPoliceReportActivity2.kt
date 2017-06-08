@@ -11,32 +11,14 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-
-import android.widget.TextView
-
+import com.google.android.gms.maps.model.LatLng
 import com.keniobyte.bruino.minsegapp.R
 
-class LocationPoliceReportActivity2 : AppCompatActivity() {
+class LocationPoliceReportActivity2 : AppCompatActivity(), MapFragment.OnPositionSelectedListener {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * [FragmentPagerAdapter] derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
-
-    /**
-     * The [ViewPager] that will host the section contents.
-     */
     private var mViewPager: ViewPager? = null
+    private var latlngPoliceReport: LatLng? = LatLng(-26.8312148,-65.2033459)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,89 +42,44 @@ class LocationPoliceReportActivity2 : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
-
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_location_police_report_activity2, menu)
-        return true
+    override fun onPositionSelected(latLng: LatLng) {
+        latlngPoliceReport = latLng
+        mSectionsPagerAdapter?.update(latLng)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-
-        if (id == R.id.action_settings) {
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    class PlaceholderFragment : Fragment() {
-
-        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                                  savedInstanceState: Bundle?): View? {
-            val rootView = inflater!!.inflate(R.layout.fragment_location_police_report_activity2, container, false)
-            val textView = rootView.findViewById(R.id.section_label) as TextView
-            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
-            return rootView
-        }
-
-        companion object {
-            /**
-             * The fragment argument representing the section number for this
-             * fragment.
-             */
-            private val ARG_SECTION_NUMBER = "section_number"
-
-            /**
-             * Returns a new instance of this fragment for the given section
-             * number.
-             */
-            fun newInstance(sectionNumber: Int): PlaceholderFragment {
-                val fragment = PlaceholderFragment()
-                val args = Bundle()
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber)
-                fragment.arguments = args
-                return fragment
-            }
-        }
-    }
-
-    /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        var positionPoliceReport: LatLng = LatLng(-26.8312148,-65.2033459)
 
-        override fun getItem(position: Int): Fragment {
+        override fun getItem(position: Int): Fragment? {
             when (position) {
-                0 -> return MapFragment()
-                1 -> return StreetViewFragment()
-                else -> return PlaceholderFragment.newInstance(position + 1)
+                0    -> return MapFragment()
+                1    -> return StreetViewFragment().newInstance(positionPoliceReport.latitude, positionPoliceReport.longitude)
+                else -> return null
             }
         }
 
         override fun getCount(): Int {
-            // Show 3 total pages.
-            return 3
+            return 2
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "SECTION 1"
-                1 -> return "SECTION 2"
+                0 -> return getString(R.string.map)
+                1 -> return getString(R.string.street_view)
             }
             return null
+        }
+
+        fun update(data: LatLng) {
+            this.positionPoliceReport = data
+            notifyDataSetChanged()
+        }
+
+        override fun getItemPosition(`object`: Any?): Int {
+            if (`object` is IUpdateableStreetView) `object`.update(positionPoliceReport)
+            return super.getItemPosition(`object`)
         }
     }
 }

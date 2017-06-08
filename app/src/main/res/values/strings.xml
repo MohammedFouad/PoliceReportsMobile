@@ -117,6 +117,8 @@
     <string name="incident_location">Indique ubicación del hecho</string>
     <string name="selected_map_drug">Indique ubicación de venta de droga</string>
     <string name="selected_map_aircraft">Indique ubicación del avistamiento</string>
+    <string name="map">Mapa</string>
+    <string name="street_view">Street View</string>
     <!-- Captha Dialog -->
     <string name="captcha_title">Escriba las dos palabras:</string>
     <string name="title_activity_main2">Main2Activity</string>
