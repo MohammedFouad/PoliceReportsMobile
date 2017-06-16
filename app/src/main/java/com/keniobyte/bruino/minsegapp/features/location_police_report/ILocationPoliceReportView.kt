@@ -10,9 +10,6 @@ import com.keniobyte.bruino.minsegapp.utils.view_presenter.View
 
 interface ILocationPoliceReportView: View {
     fun setEnableNextStepButton(i: Boolean)
-    fun addMarkerInGoogleMap(latLng: LatLng)
-    fun showProgressBar()
-    fun hideProgressBar()
     fun setLocationPoliceReport(location: LatLng)
     fun setTextPlaceAutocomplete(address: String)
     fun navigationToPoliceReportActivity()

@@ -1,5 +1,6 @@
 package com.keniobyte.bruino.minsegapp.features.location_police_report
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,14 +10,16 @@ import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback
 import com.google.android.gms.maps.StreetViewPanorama
 import com.google.android.gms.maps.SupportStreetViewPanoramaFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera
 import com.keniobyte.bruino.minsegapp.R
 
 /**
  * @author bruino
- * @version 31/05/17.
+ * @version 16/06/17.
  */
 
 class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdateableStreetView {
+    private var listener: OnChangedPositionStreetView? = null
     var streetview: StreetViewPanorama? = null
     private val ARG_PARAM1 = "lat"
     private val ARG_PARAM2 = "lng"
@@ -30,6 +33,11 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdate
         args.putDouble(ARG_PARAM2, lng)
         fragment.arguments = args
         return fragment
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        listener = activity as OnChangedPositionStreetView
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,13 +62,31 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdate
     override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama?) {
         streetview = streetViewPanorama
         streetview?.apply {
-            if (lat != null && lng != null) setPosition(LatLng(lat!!, lng!!))
             isUserNavigationEnabled = true
             isStreetNamesEnabled = true
+            setOnStreetViewPanoramaChangeListener {
+                listener!!.onChangedLatLngStreetView(it.position) }
+            setOnStreetViewPanoramaCameraChangeListener {
+                listener!!.onChangedCameraStreetView(it.bearing, it.tilt)
+            }
         }
     }
 
     override fun update(data: LatLng) {
-        streetview?.setPosition(data)
+        if (streetview?.location?.position != data) {
+            streetview?.setPosition(data)
+            val camera = StreetViewPanoramaCamera.Builder(streetview!!.panoramaCamera)
+                    .tilt(0F)
+                    .bearing(0F)
+                    .build()
+            streetview?.animateTo(camera, 0)
+        }
+
+    }
+
+    interface OnChangedPositionStreetView {
+        fun onChangedLatLngStreetView(latLng: LatLng)
+        fun onChangedCameraStreetView(bearing: Float, tilt: Float)
+
     }
 }

@@ -8,30 +8,12 @@ import io.nlopez.smartlocation.SmartLocation
 
 /**
  * @author bruino
- * @version 22/05/17.
+ * @version 16/06/17.
  */
 
 class LocationPoliceReportPresenter(override var view: ILocationPoliceReportView?) : ILocationPoliceReportPresenter<ILocationPoliceReportView> {
-    private val PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place"
-    private val TYPE_AUTOCOMPLETE = "/autocomplete"
-    private val OUT_JSON = "/json"
-
-    override fun onPlaceSelected(latLng: LatLng) {
-        view?.addMarkerInGoogleMap(latLng)
-        view?.setLocationPoliceReport(latLng)
-        view?.setEnableNextStepButton(true)
-    }
-
-    override fun nextStep() {
-        view?.navigationToPoliceReportActivity()
-    }
-
-    override fun onMapClick(latLng: LatLng) {
-        view?.apply {
-            addMarkerInGoogleMap(latLng)
-            setEnableNextStepButton(false)
-            showProgressBar()
-        }
+    override fun geocodingReverse(latLng: LatLng) {
+        view?.setEnableNextStepButton(false)
 
         val location = Location(LocationManager.GPS_PROVIDER).apply {
             latitude = latLng.latitude
@@ -42,23 +24,22 @@ class LocationPoliceReportPresenter(override var view: ILocationPoliceReportView
             if (list.size > 0) {
                 val address = list[0].getAddressLine(0)
                 view?.apply {
-                    hideProgressBar()
                     setTextPlaceAutocomplete(address)
-                    setLocationPoliceReport(latLng)
                     setEnableNextStepButton(true)
                 }
             } else {
                 view?.apply {
                     reverseGeocodingMessageError()
-                    hideProgressBar()
                 }
             }
         }
-
     }
 
     override fun unregisterReceiver() {
         SmartLocation.with(App.instance).geocoding().stop()
     }
 
+    override fun nextStep() {
+        view?.navigationToPoliceReportActivity()
+    }
 }

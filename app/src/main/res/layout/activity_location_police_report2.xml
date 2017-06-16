@@ -6,13 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.keniobyte.bruino.minsegapp.features.location_police_report.LocationPoliceReportActivity2">
+    tools:context="com.keniobyte.bruino.minsegapp.features.location_police_report.LocationPoliceReportActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/MyAppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -20,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="snap"
             app:popupTheme="@style/MyAppTheme.PopupOverlay"/>
 
 
@@ -38,11 +37,11 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_navigate_next_white_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>
