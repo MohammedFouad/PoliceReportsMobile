@@ -152,7 +152,7 @@ class LocationPoliceReportActivity : AppCompatActivity(), ILocationPoliceReportV
         }
 
         toolbar.apply {
-            navigationIcon = getDrawable(R.drawable.ic_arrow_back_white_24dp)
+            setNavigationIcon(R.drawable.ic_arrow_back_white_24dp)
             setNavigationOnClickListener { onBackPressed() }
         }
     }

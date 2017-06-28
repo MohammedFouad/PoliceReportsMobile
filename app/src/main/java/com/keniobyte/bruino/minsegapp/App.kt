@@ -1,5 +1,8 @@
 package com.keniobyte.bruino.minsegapp
 import android.app.Application
+import android.content.Context
+import android.support.multidex.MultiDex
+import android.support.multidex.MultiDexApplication
 
 /**
  * @author bruino
@@ -17,4 +20,8 @@ class App : Application() {
         instance = this
     }
 
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
+    }
 }

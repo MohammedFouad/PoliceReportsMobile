@@ -22,6 +22,8 @@ public class PoliceReport {
     private List<String> listPathsAttachments;
     private double latitude;
     private double longitude;
+    private float bearing;
+    private float tilt;
 
     public PoliceReport() {
     }
@@ -93,5 +95,21 @@ public class PoliceReport {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public float getBearing() {
+        return bearing;
+    }
+
+    public void setBearing(float bearing) {
+        this.bearing = bearing;
+    }
+
+    public float getTilt() {
+        return tilt;
+    }
+
+    public void setTilt(float tilt) {
+        this.tilt = tilt;
     }
 }

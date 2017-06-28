@@ -215,6 +215,16 @@ public class PoliceReportActivity extends AppCompatActivity implements IPoliceRe
     }
 
     @Override
+    public Float getBearing() {
+        return getIntent().getExtras().getFloat("bearing");
+    }
+
+    @Override
+    public Float getTilt() {
+        return getIntent().getExtras().getFloat("tilt");
+    }
+
+    @Override
     public String getAddress() {
         return getIntent().getExtras().getString("address");
     }

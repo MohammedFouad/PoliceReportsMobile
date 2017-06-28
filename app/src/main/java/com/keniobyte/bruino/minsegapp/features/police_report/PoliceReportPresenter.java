@@ -1,7 +1,5 @@
 package com.keniobyte.bruino.minsegapp.features.police_report;
 
-import android.util.Log;
-
 import com.kbeanie.multipicker.api.entity.ChosenImage;
 import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.models.PoliceReport;
@@ -51,6 +49,8 @@ public class PoliceReportPresenter extends BasePresenter<PoliceReportActivity> i
         policeReport.setListPathsAttachments(policeReportView.getArrayPathsAtachments());
         policeReport.setLatitude(policeReportView.getLatitude());
         policeReport.setLongitude(policeReportView.getLongitude());
+        policeReport.setBearing(policeReportView.getBearing());
+        policeReport.setTilt(policeReport.getTilt());
         policeReport.setIncidentAddress(policeReportView.getAddress());
         policeReport.setTypePoliceReport(policeReportView.getTypePoliceReport());
 
