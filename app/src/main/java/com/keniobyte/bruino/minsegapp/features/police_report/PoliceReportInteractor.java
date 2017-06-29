@@ -59,10 +59,14 @@ public class PoliceReportInteractor implements IPoliceReportInteractor {
         //Send coordinates(required)
         report.put("lat", policeReport.getLatitude());
         report.put("lng", policeReport.getLongitude());
+        report.put("bearing", policeReport.getBearing());
+        report.put("tilt", policeReport.getTilt());
         //Send address(required)
         report.put("address", policeReport.getIncidentAddress());//TODO: verify word
         //Report type
         report.put("report_type", policeReport.getTypePoliceReport());
+
+        Log.i(TAG, report.toString());
 
         MinSegAppRestClient.post( "/endpoint/call/json/anonymous_report", report, new JsonHttpResponseHandler(){
             @Override

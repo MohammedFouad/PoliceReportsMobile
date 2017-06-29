@@ -21,6 +21,8 @@ public interface IPoliceReportView {
     List<String> getArrayPathsAtachments();
     Double getLatitude();
     Double getLongitude();
+    Float getBearing();
+    Float getTilt();
     String getAddress();
     String getTypePoliceReport();
     List<ChosenImage> getImages();

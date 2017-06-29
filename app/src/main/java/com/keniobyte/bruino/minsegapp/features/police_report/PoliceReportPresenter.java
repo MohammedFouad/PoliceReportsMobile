@@ -49,6 +49,8 @@ public class PoliceReportPresenter extends BasePresenter<PoliceReportActivity> i
         policeReport.setListPathsAttachments(policeReportView.getArrayPathsAtachments());
         policeReport.setLatitude(policeReportView.getLatitude());
         policeReport.setLongitude(policeReportView.getLongitude());
+        policeReport.setBearing(policeReportView.getBearing());
+        policeReport.setTilt(policeReport.getTilt());
         policeReport.setIncidentAddress(policeReportView.getAddress());
         policeReport.setTypePoliceReport(policeReportView.getTypePoliceReport());
 

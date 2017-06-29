@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import com.keniobyte.bruino.minsegapp.R;
 import com.keniobyte.bruino.minsegapp.features.location_police_report.LocationPoliceReportActivity;
 
+
 import org.json.JSONException;
 
 import butterknife.BindDrawable;

@@ -17,6 +17,7 @@
         android:required="true" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -46,8 +47,6 @@
 
         <activity android:name=".features.police_report.PoliceReportActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".features.location_police_report.LocationPoliceReportActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".features.section_police_report.SectionPoliceReportActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".features.section_list_wanted.SectionWantedPersonActivity"
@@ -66,6 +65,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".features.section_police_stations.listPoliceStations.PoliceStationsInfoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".features.location_police_report.LocationPoliceReportActivity"
+            android:label="@string/title_activity_location_police_report2"
+            android:theme="@style/MyAppTheme" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

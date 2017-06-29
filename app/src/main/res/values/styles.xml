@@ -21,4 +21,11 @@
     <style name="MyAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="MyAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyAppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/primary</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:textColor">#ffffff</item>
+
+    </style>
 </resources>
