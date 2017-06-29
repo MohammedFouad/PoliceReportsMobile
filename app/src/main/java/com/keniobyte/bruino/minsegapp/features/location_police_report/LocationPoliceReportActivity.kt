@@ -45,6 +45,12 @@ class LocationPoliceReportActivity : AppCompatActivity(), ILocationPoliceReportV
 
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
+        tabLayout.setOnTabSelectedListener(object : TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                super.onTabSelected(tab)
+                if (tab?.position == 1) this@LocationPoliceReportActivity.toast(getString(R.string.street_view_selected))
+            }
+        })
 
         next.visibility = View.INVISIBLE
         next.setOnClickListener { presenter?.nextStep() }
@@ -191,7 +197,10 @@ class LocationPoliceReportActivity : AppCompatActivity(), ILocationPoliceReportV
         }
 
         override fun getItemPosition(`object`: Any?): Int {
-            if (`object` is IUpdateableStreetView) `object`.update(positionPoliceReport)
+            if (`object` is IUpdateableStreetView) {
+                `object`.update(positionPoliceReport)
+                this@LocationPoliceReportActivity.toast(getString(R.string.street_view_optional))
+            }
             if (`object` is IUpdateAddressPlaceAutocomplete) `object`.update(address)
             if (`object` is IUpdateLocationMapFragment) `object`.update(positionPoliceReport)
             return super.getItemPosition(`object`)

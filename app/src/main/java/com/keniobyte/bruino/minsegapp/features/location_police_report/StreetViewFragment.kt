@@ -15,7 +15,7 @@ import com.keniobyte.bruino.minsegapp.R
 
 /**
  * @author bruino
- * @version 16/06/17.
+ * @version 29/06/17.
  */
 
 class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdateableStreetView {
@@ -65,9 +65,9 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdate
             isUserNavigationEnabled = true
             isStreetNamesEnabled = true
             setOnStreetViewPanoramaChangeListener {
-                listener!!.onChangedLatLngStreetView(it.position) }
+                listener?.onChangedLatLngStreetView(it.position) }
             setOnStreetViewPanoramaCameraChangeListener {
-                listener!!.onChangedCameraStreetView(it.bearing, it.tilt)
+                listener?.onChangedCameraStreetView(it.bearing, it.tilt)
             }
         }
     }

@@ -118,7 +118,9 @@
     <string name="selected_map_drug">Indique ubicación de venta de droga</string>
     <string name="selected_map_aircraft">Indique ubicación del avistamiento</string>
     <string name="map">Mapa</string>
-    <string name="street_view">Street View</string>
+    <string name="street_view">Vista 360°</string>
+    <string name="street_view_selected">Apunte la ubicacion precisa y toque el botón "siguiente"</string>
+    <string name="street_view_optional">Puede apuntar la ubicacion precisa en la pestaña "Vista 360°"</string>
     <!-- Captha Dialog -->
     <string name="captcha_title">Escriba las dos palabras:</string>
     <string name="title_activity_main2">Main2Activity</string>
