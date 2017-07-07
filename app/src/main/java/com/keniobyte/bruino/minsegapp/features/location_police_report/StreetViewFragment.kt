@@ -65,9 +65,9 @@ class StreetViewFragment: Fragment(), OnStreetViewPanoramaReadyCallback, IUpdate
             isUserNavigationEnabled = true
             isStreetNamesEnabled = true
             setOnStreetViewPanoramaChangeListener {
-                listener?.onChangedLatLngStreetView(it.position) }
+                if (it != null) listener?.onChangedLatLngStreetView(it.position) }
             setOnStreetViewPanoramaCameraChangeListener {
-                listener?.onChangedCameraStreetView(it.bearing, it.tilt)
+                if (it != null) listener?.onChangedCameraStreetView(it.bearing, it.tilt)
             }
         }
     }
